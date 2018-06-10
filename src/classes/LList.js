@@ -81,8 +81,7 @@ export default class LList {
     const iterator = this.begin();
     let item = iterator.next();
     if (!item.value) {
-      iterator.reset();
-      return iterator;
+      return this.begin();
     }
     while (item.value && item.value.getNext() != null) {
       item = iterator.next();
@@ -94,6 +93,21 @@ export default class LList {
   clone(node) {
     if (node === null) return null;
     else return new LListNode(node.getValue(), this.clone(node.getNext()));
+  }
+
+  values() {
+    const iterator = this.begin();
+    let iterable = false;
+    const values = [];
+    while (
+      !iterable &&
+      iterator.current() !== null &&
+      iterator.current().getValue() != null
+    ) {
+      values.push(iterator.current().getValue());
+      iterable = iterator.next().done;
+    }
+    return values;
   }
 
   print() {

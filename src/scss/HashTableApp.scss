@@ -1,6 +1,7 @@
 $table-border: 1px solid #535252;
 .Hash-Table-App {
   & .App-buttons {
+    display: inline-block;
     margin: 20px;
     & .pull-left {
       float: left;
@@ -21,10 +22,11 @@ $table-border: 1px solid #535252;
   }
   & .App-canvas {
     height: calc(100vh - 245px);
+    overflow: auto;
     & .content {
       width: auto;
       height: auto;
-      overflow: auto;
+      padding-bottom: 20px;
       & .htable {
         border-left: $table-border;
         border-right: $table-border;
@@ -35,6 +37,7 @@ $table-border: 1px solid #535252;
         & .bucket {
           border-top: $table-border;
           height: 60px;
+          padding-top: 16px;
           position: relative;
           &:last-child {
             border-bottom: $table-border;
@@ -42,12 +45,17 @@ $table-border: 1px solid #535252;
         }
         & .llist {
           position: absolute;
-          right: 20px;
           top: 10px;
-          right: -130px;
+          left: 165px;
+          display: inline-flex;
           & .arrow {
             margin-top: 6px;
+            position: absolute;
             float: left;
+            left: -30px;
+            &.initial-arrow {
+              left: -59px;
+            }
           }
           & .llistnode {
             height: 40px;
@@ -55,10 +63,29 @@ $table-border: 1px solid #535252;
             padding: 0;
             width: 100px;
             border: $table-border;
+            position: relative;
+            margin-left: 30px;
+            &.found {
+              border: 2px solid orangered;
+              background: rgb(243, 243, 208);
+            }
+            &.found .value {
+              border-right: 2px solid orangered;
+            }
+            &.header {
+              margin-left: 59px;
+            }
             & .value {
               float: left;
               width: 80px;
               border-right: $table-border;
+              height: 38px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-size: 15px;
+              padding: 8px;
+              text-align: left;
             }
             & .next {
               width: 20px;

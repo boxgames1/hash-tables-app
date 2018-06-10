@@ -8,17 +8,17 @@ class HashTableApp extends Component {
     this.state = {
       initialSize: 1,
       arraySize: [],
-      addContent: "",
+      insert: "",
       find: "",
       erase: "",
       hTable: null
     };
     this.onChangeInitialSize = this.onChangeInitialSize.bind(this);
-    this.onChangeAddContent = this.onChangeAddContent.bind(this);
+    this.onChangeInsert = this.onChangeInsert.bind(this);
     this.onChangeFind = this.onChangeFind.bind(this);
     this.onChangeErase = this.onChangeErase.bind(this);
     this.newHashTable = this.newHashTable.bind(this);
-    this.addContent = this.addContent.bind(this);
+    this.insert = this.insert.bind(this);
     this.find = this.find.bind(this);
     this.clear = this.clear.bind(this);
     this.erase = this.erase.bind(this);
@@ -34,18 +34,50 @@ class HashTableApp extends Component {
       hTable
     });
   }
-  addContent() {}
-  find() {}
-  clear() {}
-  erase() {}
+  insert() {
+    if (this.state.hTable !== null) {
+      this.state.hTable.insert(this.state.insert);
+      this.forceUpdate();
+    }
+  }
+  find() {
+    /*if (this.state.hTable !== null) {
+      const result = this.state.hTable.find(this.state.find);
+    }*/
+    // This is not the truly way to find and element in the table
+    // The good one is the above commented lines
+    const found = document.querySelector(
+      '[data-key="' + this.state.find + '"]'
+    );
+    if (found != null) {
+      found.classList.add("found");
+      setTimeout(() => {
+        found.classList.remove("found");
+      }, 3000);
+    }
+  }
+  clear() {
+    if (this.state.hTable !== null) {
+      this.state.hTable.clear();
+      this.forceUpdate();
+    }
+  }
+  erase() {
+    if (this.state.hTable !== null && this.state.erase !== null) {
+      this.state.hTable.erase(this.state.erase);
+      this.forceUpdate();
+    }
+  }
   onChangeInitialSize(e) {
+    let initialSize = parseInt(e.target.value);
+    if (isNaN(initialSize)) initialSize = 1;
     this.setState({
-      initialSize: e.target.value
+      initialSize
     });
   }
-  onChangeAddContent(e) {
+  onChangeInsert(e) {
     this.setState({
-      addContent: e.target.value
+      insert: e.target.value
     });
   }
   onChangeFind(e) {
@@ -61,7 +93,7 @@ class HashTableApp extends Component {
   render() {
     return (
       <div className="Hash-Table-App">
-        <div className="App-intro row">
+        <div className="App-intro">
           <div className="App-buttons col-md-12">
             <div className="pull-left col-md-2">
               <input
@@ -81,14 +113,14 @@ class HashTableApp extends Component {
               <input
                 id="add-content"
                 className="pull-left"
-                value={this.state.addContent}
-                onChange={this.onChangeAddContent}
+                value={this.state.insert}
+                onChange={this.onChangeInsert}
               />
               <button
-                onClick={this.addContent}
+                onClick={this.insert}
                 className="btn btn-default pull-left"
               >
-                Add content
+                Insert
               </button>
             </div>
             <div className="pull-left col-md-3">
@@ -132,12 +164,26 @@ class HashTableApp extends Component {
                   this.state.arraySize.length > 0 &&
                   this.state.arraySize.map(i => (
                     <div key={i} className="bucket">
+                      <span>Bucket {i}</span>
                       <div className="llist">
-                        <div className="arrow initial-arrow">------→</div>
                         <div className="header llistnode">
-                          <div className="value" />
+                          <div className="arrow initial-arrow">------→</div>
+                          <div className="value">Header</div>
                           <div className="next" />
                         </div>
+                        {this.state.hTable.buckets[i].values().length > 0 &&
+                          this.state.hTable.buckets[i].values().map(value => (
+                            <div
+                              key={value}
+                              data-key={value}
+                              className="llistnode"
+                              title={value}
+                            >
+                              <div className="arrow">--→</div>
+                              <div className="value">{value}</div>
+                              <div className="next" />
+                            </div>
+                          ))}
                       </div>
                     </div>
                   ))}

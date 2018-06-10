@@ -1,4 +1,5 @@
 .Hash-Table-App .App-buttons {
+  display: inline-block;
   margin: 20px; }
 
 .Hash-Table-App .App-buttons .pull-left {
@@ -18,12 +19,13 @@
   width: 140px; }
 
 .Hash-Table-App .App-canvas {
-  height: calc(100vh - 245px); }
+  height: calc(100vh - 245px);
+  overflow: auto; }
 
 .Hash-Table-App .App-canvas .content {
   width: auto;
   height: auto;
-  overflow: auto; }
+  padding-bottom: 20px; }
 
 .Hash-Table-App .App-canvas .content .htable {
   border-left: 1px solid #535252;
@@ -35,6 +37,7 @@
 .Hash-Table-App .App-canvas .content .htable .bucket {
   border-top: 1px solid #535252;
   height: 60px;
+  padding-top: 16px;
   position: relative; }
 
 .Hash-Table-App .App-canvas .content .htable .bucket:last-child {
@@ -42,25 +45,49 @@
 
 .Hash-Table-App .App-canvas .content .htable .llist {
   position: absolute;
-  right: 20px;
   top: 10px;
-  right: -130px; }
+  left: 165px;
+  display: inline-flex; }
 
 .Hash-Table-App .App-canvas .content .htable .llist .arrow {
   margin-top: 6px;
-  float: left; }
+  position: absolute;
+  float: left;
+  left: -30px; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .arrow.initial-arrow {
+  left: -59px; }
 
 .Hash-Table-App .App-canvas .content .htable .llist .llistnode {
   height: 40px;
   float: left;
   padding: 0;
   width: 100px;
-  border: 1px solid #535252; }
+  border: 1px solid #535252;
+  position: relative;
+  margin-left: 30px; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode.found {
+  border: 2px solid orangered;
+  background: #f3f3d0; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode.found .value {
+  border-right: 2px solid orangered; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode.header {
+  margin-left: 59px; }
 
 .Hash-Table-App .App-canvas .content .htable .llist .llistnode .value {
   float: left;
   width: 80px;
-  border-right: 1px solid #535252; }
+  border-right: 1px solid #535252;
+  height: 38px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  padding: 8px;
+  text-align: left; }
 
 .Hash-Table-App .App-canvas .content .htable .llist .llistnode .next {
   width: 20px;
