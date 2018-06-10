@@ -1,0 +1,72 @@
+$table-border: 1px solid #535252;
+.Hash-Table-App {
+  & .App-buttons {
+    margin: 20px;
+    & .pull-left {
+      float: left;
+    }
+    & input {
+      height: 38px;
+      margin-right: 20px;
+      padding-left: 5px;
+    }
+    & #size-new {
+      width: 50px;
+    }
+    & #add-content,
+    & #find,
+    & #erase {
+      width: 140px;
+    }
+  }
+  & .App-canvas {
+    height: calc(100vh - 245px);
+    & .content {
+      width: auto;
+      height: auto;
+      overflow: auto;
+      & .htable {
+        border-left: $table-border;
+        border-right: $table-border;
+        margin: 20px 20px 0 35px;
+        padding: 0;
+        width: 200px;
+
+        & .bucket {
+          border-top: $table-border;
+          height: 60px;
+          position: relative;
+          &:last-child {
+            border-bottom: $table-border;
+          }
+        }
+        & .llist {
+          position: absolute;
+          right: 20px;
+          top: 10px;
+          right: -130px;
+          & .arrow {
+            margin-top: 6px;
+            float: left;
+          }
+          & .llistnode {
+            height: 40px;
+            float: left;
+            padding: 0;
+            width: 100px;
+            border: $table-border;
+            & .value {
+              float: left;
+              width: 80px;
+              border-right: $table-border;
+            }
+            & .next {
+              width: 20px;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

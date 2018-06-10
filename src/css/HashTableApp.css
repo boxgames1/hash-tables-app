@@ -1,0 +1,67 @@
+.Hash-Table-App .App-buttons {
+  margin: 20px; }
+
+.Hash-Table-App .App-buttons .pull-left {
+  float: left; }
+
+.Hash-Table-App .App-buttons input {
+  height: 38px;
+  margin-right: 20px;
+  padding-left: 5px; }
+
+.Hash-Table-App .App-buttons #size-new {
+  width: 50px; }
+
+.Hash-Table-App .App-buttons #add-content,
+.Hash-Table-App .App-buttons #find,
+.Hash-Table-App .App-buttons #erase {
+  width: 140px; }
+
+.Hash-Table-App .App-canvas {
+  height: calc(100vh - 245px); }
+
+.Hash-Table-App .App-canvas .content {
+  width: auto;
+  height: auto;
+  overflow: auto; }
+
+.Hash-Table-App .App-canvas .content .htable {
+  border-left: 1px solid #535252;
+  border-right: 1px solid #535252;
+  margin: 20px 20px 0 35px;
+  padding: 0;
+  width: 200px; }
+
+.Hash-Table-App .App-canvas .content .htable .bucket {
+  border-top: 1px solid #535252;
+  height: 60px;
+  position: relative; }
+
+.Hash-Table-App .App-canvas .content .htable .bucket:last-child {
+  border-bottom: 1px solid #535252; }
+
+.Hash-Table-App .App-canvas .content .htable .llist {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  right: -130px; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .arrow {
+  margin-top: 6px;
+  float: left; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode {
+  height: 40px;
+  float: left;
+  padding: 0;
+  width: 100px;
+  border: 1px solid #535252; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode .value {
+  float: left;
+  width: 80px;
+  border-right: 1px solid #535252; }
+
+.Hash-Table-App .App-canvas .content .htable .llist .llistnode .next {
+  width: 20px;
+  float: left; }
