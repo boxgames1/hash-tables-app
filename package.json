@@ -1,6 +1,7 @@
 {
   "name": "hash-tables-app",
   "version": "0.1.0",
+  "author": "boxgames1",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
