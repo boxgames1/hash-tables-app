@@ -1,6 +1,6 @@
 [Application Live Demo](https://floating-citadel-43507.herokuapp.com/)
 
-The application has been explained [in this article]
+The application has been explained [in this article](https://www.medium.com)
 
 ## Set Up
 

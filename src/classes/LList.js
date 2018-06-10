@@ -38,7 +38,7 @@ export default class LList {
       }
     }
   }
-  // Cost: O(n), O(1) at beginning
+  // Cost: O(1) at beginning
   insert(pos, val) {
     const newNode = new LListNode(val, pos.current().getNext());
     pos.current().setNext(newNode);
