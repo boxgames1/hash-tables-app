@@ -1,6 +1,6 @@
 [Application Live Demo](https://floating-citadel-43507.herokuapp.com/)
 
-The application has been explained [in this article](https://www.medium.com)
+The application has been explained [in this article](https://medium.com/@alonso.oliverio/data-structures-in-js-hash-tables-app-with-react-b28b02a9e6b5)
 
 ## Set Up
 
